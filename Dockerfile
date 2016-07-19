@@ -58,6 +58,8 @@ RUN dpkg-divert --add --rename --divert /opt/google/chrome/google-chrome.real /o
     echo "#!/bin/bash\nexec /opt/google/chrome/google-chrome.real --disable-setuid-sandbox \"\$@\"" > /opt/google/chrome/google-chrome && \
     chmod 755 /opt/google/chrome/google-chrome
 
+RUN npm install webdriver-dispatcher@0.1.4 -g
+
 # Configure Supervisor
 ADD ./etc/supervisord.conf /etc/
 ADD ./etc/supervisor /etc/supervisor
@@ -67,8 +69,9 @@ ENV DISPLAY :20.0
 ENV SCREEN_GEOMETRY "1440x900x24"
 ENV CHROMEDRIVER_PORT 4444
 ENV CHROMEDRIVER_WHITELISTED_IPS "127.0.0.1"
+ENV DISPATCHER_PORT 5555
 
-EXPOSE 4444
+EXPOSE 5555
 
 VOLUME [ "/var/log/supervisor" ]
 
