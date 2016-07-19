@@ -58,7 +58,7 @@ RUN dpkg-divert --add --rename --divert /opt/google/chrome/google-chrome.real /o
     echo "#!/bin/bash\nexec /opt/google/chrome/google-chrome.real --disable-setuid-sandbox \"\$@\"" > /opt/google/chrome/google-chrome && \
     chmod 755 /opt/google/chrome/google-chrome
 
-RUN npm install webdriver-dispatcher@0.1.6 -g
+RUN npm install webdriver-dispatcher -g
 
 # Configure Supervisor
 ADD ./etc/supervisord.conf /etc/
