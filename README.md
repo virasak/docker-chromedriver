@@ -11,7 +11,7 @@ Includes
 docker service create --name docker-chromedriver --replicas 4 -p 5555:5555 virasak/docker-chromedriver
 ````
 
-Remote WebDriver url will bo:
+Remote WebDriver url will be:
 ```
 http://{docker-engine}:555/webdriver
 ```
