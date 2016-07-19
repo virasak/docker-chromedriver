@@ -13,5 +13,5 @@ docker service create --name docker-chromedriver --replicas 4 -p 5555:5555 viras
 
 Remote WebDriver url will be:
 ```
-http://{docker-engine}:555/webdriver
+http://{docker-engine}:5555/webdriver
 ```
